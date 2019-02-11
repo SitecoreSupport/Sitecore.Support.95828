@@ -90,7 +90,12 @@
             {
                 if (string.IsNullOrEmpty(text))
                 {
-                    return RenderFieldResult.Empty;
+                    string href = safeDictionary["href"];
+                    if (string.IsNullOrEmpty(href))
+                    {
+                        return RenderFieldResult.Empty;
+                    }
+                    text = href;
                 }
                 stringBuilder.Append(text);
             }
